@@ -1,0 +1,20 @@
+Package: Mr.MtRobin
+Type: Package
+Title: A Multi-Tissue transcriptome-wide Mendelian Randomization method ROBust to INvalid instrumental variables.
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Kevin J.", "Gleason", email = "kevin.j.gleason@gmail.com", role=c("aut","cre")),
+    person("Fan", "Yang", email = "FAN.3.YANG@ucdenver.edu", role="aut"),
+    person("Lin S.", "Chen", email = "lchen@health.bsd.uchicago.edu", role="aut"))
+Maintainer: Kevin J. Gleason <kevin.j.gleason@gmail.com>
+Description: Implements the MR-MtRobin algorithm, a Multi-tissue transcriptome-wide
+    Mendelian Randomization method ROBust to INvalid instrumental variables.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    lme4 (>= 1.1),
+    data.table (>= 1.12),
+    matrixStats (>= 0.53.1),
+    mvtnorm (>= 1.0)
+RoxygenNote: 7.1.0
