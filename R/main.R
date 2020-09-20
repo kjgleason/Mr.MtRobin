@@ -73,9 +73,9 @@ MR_MtRobin <- function(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD
   gwas_res <- data.table::data.table(snpID=snpID,gwas_beta=gwas_betas,gwas_se=gwas_se)
 
   ## merge eQTL and GWAS results
-  setkey(eQTL_res_melt_PltThresh,snpID)
-  setkey(gwas_res,snpID)
-  merged_res <- merge(eQTL_res_melt_PltThresh,gwas_res)
+  data.table::setkey(eQTL_res_melt_PltThresh,snpID)
+  data.table::setkey(gwas_res,snpID)
+  merged_res <- data.table::merge(eQTL_res_melt_PltThresh,gwas_res)
 
   ## set up coefficients for reverse regression
   beta_x <- matrix(merged_res$beta,ncol=1)
@@ -149,14 +149,14 @@ MR_MtRobin_resample <- function(MR_MtRobin_res,nsamp=1e4,use_nonconverge=FALSE){
   if(use_nonconverge){
     for(i in 1:nsamp){
       beta_gwas_null <- beta_gwas_nullMat[i,snpID]
-      lme_null <- lmer(eqtl_betas~(beta_gwas_null-1)+(beta_gwas_null-1|snpID),weights=weights)
+      lme_null <- lme4::lmer(eqtl_betas~(beta_gwas_null-1)+(beta_gwas_null-1|snpID),weights=weights)
       tstat_nulls <- c(tstat_nulls, summary(lme_null)$coefficients[1,3])
       nsamp_used <- nsamp_used + 1
     }
   } else{
     for(i in 1:nsamp){
       beta_gwas_null <- beta_gwas_nullMat[i,snpID]
-      lme_null <- lmer(eqtl_betas~(beta_gwas_null-1)+(beta_gwas_null-1|snpID),weights=weights)
+      lme_null <- lme4::lmer(eqtl_betas~(beta_gwas_null-1)+(beta_gwas_null-1|snpID),weights=weights)
       if(is.null(summary(lme_null)$optinfo$conv$lme4$messages)){
         tstat_nulls <- c(tstat_nulls, summary(lme_null)$coefficients[1,3])
         nsamp_used <- nsamp_used + 1
