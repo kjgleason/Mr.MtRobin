@@ -30,3 +30,9 @@ converge or results in a singular fit of the random slope).
 \description{
 Uses a resampling procedure to estimate a \eqn{P}-value for a MR-MtRobin object.
 }
+\examples{
+myRes <- MR_MtRobin(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD)
+
+MR_MtRobin_resample(MR_MtRobin_res=myRes, nsamp=1e4, use_nonconverge=FALSE)
+
+}

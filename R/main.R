@@ -33,6 +33,15 @@
 #' Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 #' (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 #'
+#' @examples
+#' ## MR_MtRobin_input created using MR_MtRobin_setup()
+#' ## IV_gene1 created using select_IV()
+#'
+#' MR_MtRobin(snpID=IV_gene1,
+#' gwas_betas=MR_MtRobin_input$gwas_betas, gwas_se=MR_MtRobin_input$gwas_se,
+#' eqtl_betas=MR_MtRobin_input$eqtl_betas, eqtl_se=MR_MtRobin_input$eqtl_se,
+#' eqtl_pvals=MR_MtRobin_input$eqtl_pvals, LD=MR_MtRobin_input$LD)
+#'
 #' @export
 #'
 MR_MtRobin <- function(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD,pval_thresh=0.001){
@@ -105,6 +114,11 @@ MR_MtRobin <- function(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD
 #' \code{nsamp_used} is returned because not all \code{nsamp} may be used if
 #' \code{use_nonconverge=FALSE} (samples will be dropped if the model does not
 #' converge or results in a singular fit of the random slope).
+#'
+#' @examples
+#' myRes <- MR_MtRobin(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD)
+#'
+#' MR_MtRobin_resample(MR_MtRobin_res=myRes, nsamp=1e4, use_nonconverge=FALSE)
 #'
 #' @export
 #'

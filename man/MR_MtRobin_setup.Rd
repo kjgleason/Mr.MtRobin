@@ -55,3 +55,9 @@ standard error estimates from the GWAS analysis.
 Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 }
+\examples{
+MR_MtRobin_input <-
+MR_MtRobin_setup(geneID="gene1",snpID=IV_gene1,eqtl_data=eqtl_stats_example,
+gwas_data=gwas_stats_example,LD=LD_example,nTiss=10)
+
+}

@@ -51,3 +51,13 @@ match the order of \code{snpID}.
 Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 }
+\examples{
+## MR_MtRobin_input created using MR_MtRobin_setup()
+## IV_gene1 created using select_IV()
+
+MR_MtRobin(snpID=IV_gene1,
+gwas_betas=MR_MtRobin_input$gwas_betas, gwas_se=MR_MtRobin_input$gwas_se,
+eqtl_betas=MR_MtRobin_input$eqtl_betas, eqtl_se=MR_MtRobin_input$eqtl_se,
+eqtl_pvals=MR_MtRobin_input$eqtl_pvals, LD=MR_MtRobin_input$LD)
+
+}

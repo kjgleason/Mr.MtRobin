@@ -40,6 +40,11 @@
 #' Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 #' (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 #'
+#' @examples
+#' MR_MtRobin_input <-
+#' MR_MtRobin_setup(geneID="gene1",snpID=IV_gene1,eqtl_data=eqtl_stats_example,
+#' gwas_data=gwas_stats_example,LD=LD_example,nTiss=10)
+#'
 #' @export
 #'
 MR_MtRobin_setup <- function(geneID, snpID, eqtl_data, gwas_data, LD, nTiss){
@@ -208,6 +213,9 @@ select_IV_fs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thres
 #' Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 #' (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 #'
+#' @examples
+#' select_IV_bs(geneID="gene1", eqtl_data=eqtl_stats_example, nTiss=10, LD=LD_example)
+#'
 #' @export
 #'
 select_IV_bs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thresh=0.001, nTiss_thresh=3){
@@ -339,9 +347,12 @@ select_IV_bs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thres
 #' Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 #' (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 #'
+#' @examples
+#' select_IV(geneID="gene1", eqtl_data=eqtl_stats_example, nTiss=10, LD=LD_example)
+#'
 #' @export
 #'
-select_IV <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thresh=0.001, nTiss_thresh=3,back_select=TRUE){
+select_IV <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thresh=0.001, nTiss_thresh=3, back_select=TRUE){
 
   if(back_select){
     return(select_IV_bs(geneID, eqtl_data, nTiss, LD, ld_thresh, pval_thresh, nTiss_thresh))

@@ -52,3 +52,7 @@ must match the conventions \code{pvalue_j} and \code{beta_j} for \eqn{j} in \{1,
 Note that the matrix \code{LD} should hold \emph{correlation coefficients}
 (i.e. \eqn{r}), not their squared values (\eqn{r^2}).
 }
+\examples{
+select_IV_bs(geneID="gene1", eqtl_data=eqtl_stats_example, nTiss=10, LD=LD_example)
+
+}
