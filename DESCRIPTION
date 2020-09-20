@@ -16,5 +16,6 @@ Imports:
     lme4 (>= 1.1),
     data.table (>= 1.12),
     matrixStats (>= 0.53.1),
-    mvtnorm (>= 1.0)
+    mvtnorm (>= 1.0),
+    reshape2 (>= 1.4.3)
 RoxygenNote: 7.1.0

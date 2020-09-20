@@ -252,7 +252,7 @@ select_IV_bs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thres
   ## get pairwise r^2
   LD_r2_pw <- LD_r2
   LD_r2_pw[lower.tri(LD_r2_pw,diag=T)] <- NA
-  LD_r2_pw <- melt(LD_r2_pw)
+  LD_r2_pw <- reshape2::melt(LD_r2_pw)
   colnames(LD_r2_pw) <- c("SNP1","SNP2","r2")
   LD_r2_pw$SNP1 <- as.character(LD_r2_pw$SNP1)
   LD_r2_pw$SNP2 <- as.character(LD_r2_pw$SNP2)
