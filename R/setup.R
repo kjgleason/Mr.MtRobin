@@ -119,7 +119,7 @@ select_IV_fs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thres
   eqtl_data$nTissThresh_p <- apply(pval_mat, 1, function(x) sort(x)[nTiss_thresh])
   eqtl_data <- subset(eqtl_data, nTissThresh_p < pval_thresh)
   ## ensure same sign for tissues with p < pval_thresh
-  betas <- as.matrix(subset(eqtl_data,select=paste0("beta_",1:nT)))
+  betas <- as.matrix(subset(eqtl_data,select=paste0("beta_",1:nTiss)))
   pvals <- as.matrix(subset(eqtl_data,select=paste0("pvalue_",1:nTiss)))
   pvals_lt001 <- pvals<0.001
   betas_sig <- betas*pvals_lt001
@@ -222,7 +222,7 @@ select_IV_bs <- function(geneID, eqtl_data, nTiss, LD, ld_thresh=0.5, pval_thres
   eqtl_data$nTiss_ltThresh <- apply(pval_mat, 1, function(x) sum(x<pval_thresh))
   eqtl_data <- subset(eqtl_data, nTissThresh_p < pval_thresh)
   ## ensure same sign for tissues with p < pval_thresh
-  betas <- as.matrix(subset(eqtl_data,select=paste0("beta_",1:nT)))
+  betas <- as.matrix(subset(eqtl_data,select=paste0("beta_",1:nTiss)))
   pvals <- as.matrix(subset(eqtl_data,select=paste0("pvalue_",1:nTiss)))
   pvals_lt001 <- pvals<0.001
   betas_sig <- betas*pvals_lt001
