@@ -75,7 +75,7 @@ MR_MtRobin <- function(snpID,gwas_betas,gwas_se,eqtl_betas,eqtl_se,eqtl_pvals,LD
   ## merge eQTL and GWAS results
   data.table::setkey(eQTL_res_melt_PltThresh,snpID)
   data.table::setkey(gwas_res,snpID)
-  merged_res <- data.table::merge(eQTL_res_melt_PltThresh,gwas_res)
+  merged_res <- data.table::merge.data.table(eQTL_res_melt_PltThresh,gwas_res)
 
   ## set up coefficients for reverse regression
   beta_x <- matrix(merged_res$beta,ncol=1)

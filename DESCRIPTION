@@ -14,7 +14,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     lme4 (>= 1.1),
-    data.table (>= 1.12),
+    data.table (>= 1.13),
     matrixStats (>= 0.53.1),
     mvtnorm (>= 1.0),
     reshape2 (>= 1.4.3)
