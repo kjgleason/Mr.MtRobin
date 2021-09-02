@@ -20,4 +20,4 @@ To install and load functions from `Mr.MtRobin`, run the following:
 
 To cite `Mr.MtRobin` in publications, please use:
 
-Kevin J. Gleason, Fan Yang and Lin S. Chen. A robust two-sample Mendelian Randomization method integrating GWAS with multi-tissue eQTL summary statistics. bioRxiv (2020), doi:10.1101/2020.06.04.135541v1.full.
+Kevin J. Gleason, Fan Yang and Lin S. Chen. A robust two-sample Mendelian Randomization method integrating GWAS with multi-tissue eQTL summary statistics. Genet Epidemiol (2021); 45(4):353-371. doi:10.1002/gepi.22380.
